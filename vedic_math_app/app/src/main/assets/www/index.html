@@ -3,228 +3,168 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>WLAN Cracker · fh_ style</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>WLAN Cracker · deep material</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    /* LIGHT THEME (default) */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    :root {
-      --bg-page: #f5f5f5;
-      --card-bg: #ffffff;
-      --card-shadow: 0 15px 30px rgba(0, 0, 0, 0.05), 0 3px 8px rgba(0,0,0,0.02);
-      --text-primary: #111111;
-      --label-text: #222222;
-      --input-border: #d0d9e5;
-      --input-placeholder: #a8b6c9;
-      --input-bg: #ffffff;
-      --input-text: #111111;
-      --generate-bg: #111111;
-      --generate-text: white;
-      --generate-hover: #2a2a2a;
-      --clear-bg: #e9ecf0;
-      --clear-border: #cbd5e1;
-      --clear-text: #1e2b3c;
-      --clear-hover: #dadfe8;
-      --output-bg: #f0f4fa;
-      --output-border: #e2e9f2;
-      --output-label: #2b4a6f;
-      --output-text: #0f2c42;
-      --copy-btn-bg: #d4e0f0;
-      --copy-btn-color: #1e3a5f;
-    }
-
-    /* DARK THEME */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg-page: #121212;
-        --card-bg: #1e1e1e;
-        --card-shadow: 0 15px 30px rgba(0, 0, 0, 0.7), 0 3px 8px rgba(0,0,0,0.5);
-        --text-primary: #eaeef2;
-        --label-text: #b8c7dd;
-        --input-border: #3f4d60;
-        --input-placeholder: #7a8b9f;
-        --input-bg: #2a2f38;
-        --input-text: #eef3f8;
-        --generate-bg: #4a6fa5;
-        --generate-text: white;
-        --generate-hover: #5f82b9;
-        --clear-bg: #2f3b4a;
-        --clear-border: #4b5e77;
-        --clear-text: #d1e0f0;
-        --clear-hover: #3f4f63;
-        --output-bg: #1e2a36;
-        --output-border: #384b60;
-        --output-label: #9bbad8;
-        --output-text: #d4e5ff;
-        --copy-btn-bg: #2f4055;
-        --copy-btn-color: #c0d8f0;
-      }
-    }
-
     body {
-      background: var(--bg-page);
-      font-family: 'Inter', sans-serif;
+      background: #e0e5ec;  /* medium grey background */
+      font-family: 'Roboto', system-ui, -apple-system, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
       margin: 0;
-      padding: 12px;
+      padding: 16px;
     }
 
     .card {
-      background: var(--card-bg);
+      background: #ffffff;
       border-radius: 32px;
-      box-shadow: var(--card-shadow);
+      box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.2), 0 5px 12px rgba(0,0,0,0.08);
       width: 100%;
-      max-width: 500px;
-      padding: 28px 22px;
-      transition: background 0.2s, box-shadow 0.2s;
+      max-width: 460px;
+      padding: 32px 24px;
     }
 
     h1 {
       font-size: 2rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 22px;
+      font-weight: 500;
+      color: #121926;
+      margin-bottom: 32px;
+      letter-spacing: -0.01em;
     }
 
-    .field-label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--label-text);
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      margin-bottom: 8px;
+    /* Material Outlined Text Field */
+    .text-field {
+      margin-bottom: 40px;
     }
 
-    .wlan-input {
+    .text-field input {
       width: 100%;
-      padding: 16px 20px;
+      padding: 16px 18px;
       font-size: 1.1rem;
-      border: 1.8px solid var(--input-border);
-      border-radius: 20px;
+      border: 2px solid #b0c0d0;
+      border-radius: 18px;
       outline: none;
-      background: var(--input-bg);
-      color: var(--input-text);
-      margin-bottom: 24px;
-      -webkit-appearance: none;
+      background: #ffffff;
+      color: #121926;
+      font-family: 'Roboto', sans-serif;
+      transition: border 0.15s, box-shadow 0.15s;
     }
 
-    .wlan-input:focus {
-      border-color: var(--text-primary);
+    .text-field input:focus {
+      border-color: #1e3b5c;
+      box-shadow: 0 0 0 4px rgba(30,59,92,0.15);
     }
 
-    .wlan-input::placeholder {
-      color: var(--input-placeholder);
+    .text-field input::placeholder {
+      color: #6f7e95;
+      font-weight: 400;
+      font-size: 1rem;
+      opacity: 1;
     }
 
     .button-row {
       display: flex;
-      gap: 12px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 40px;
     }
 
-    .generate-btn {
-      background: var(--generate-bg);
-      color: var(--generate-text);
+    /* Filled button – dark */
+    .btn-filled {
+      background: #1e2b3c;
+      color: white;
       border: none;
-      border-radius: 50px;
-      padding: 18px 16px;
-      font-size: 1.3rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      flex: 2;
-      min-width: 180px;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.05s;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
-    }
-
-    .generate-btn:hover {
-      background: var(--generate-hover);
-    }
-
-    .generate-btn:active {
-      transform: scale(0.97);
-    }
-
-    .clear-btn {
-      background: var(--clear-bg);
-      color: var(--clear-text);
-      border: 1.5px solid var(--clear-border);
-      border-radius: 50px;
-      padding: 18px 16px;
-      font-size: 1.3rem;
+      border-radius: 40px;
+      padding: 16px 24px;
+      font-size: 1.1rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
+      letter-spacing: 0.5px;
       flex: 1;
-      min-width: 110px;
       cursor: pointer;
-      transition: background 0.15s, transform 0.05s;
+      box-shadow: 0 8px 18px -6px #1e2b3c80;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
     }
 
-    .clear-btn:hover {
-      background: var(--clear-hover);
+    .btn-filled:hover {
+      background: #253649;
+      box-shadow: 0 10px 22px -6px #1e2b3c;
     }
 
-    .clear-btn:active {
-      transform: scale(0.96);
+    .btn-filled:active {
+      transform: scale(0.97);
+      background: #17212e;
     }
 
-    /* output area with copy button */
-    .output-block {
-      background: var(--output-bg);
-      border-radius: 28px;
-      padding: 18px 22px;
-      border: 1px solid var(--output-border);
+    /* Outlined button – dark border */
+    .btn-outlined {
+      background: transparent;
+      color: #1e2b3c;
+      border: 2px solid #9eb0c8;
+      border-radius: 40px;
+      padding: 14px 24px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      flex: 1;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.1s;
+    }
+
+    .btn-outlined:hover {
+      background: #edf2f9;
+      border-color: #1e2b3c;
+    }
+
+    .btn-outlined:active {
+      transform: scale(0.97);
+      background: #dce5f0;
+    }
+
+    /* Output card – grey background, not white */
+    .output-card {
+      background: #f0f4fa;   /* light grey, not white */
+      border-radius: 24px;
+      padding: 18px 24px 20px 24px;
+      box-shadow: inset 0 1px 4px rgba(255,255,255,0.8), 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #d0ddee;
     }
 
     .output-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 6px;
-    }
-
-    .output-label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--output-label);
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
+      justify-content: flex-end;
+      margin-bottom: 8px;
     }
 
     .copy-btn {
-      background: var(--copy-btn-bg);
-      color: var(--copy-btn-color);
+      background: transparent;
       border: none;
-      border-radius: 40px;
-      padding: 6px 16px;
-      font-size: 0.8rem;
+      color: #1e3b5c;
+      font-size: 0.9rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      padding: 6px 16px;
+      border-radius: 40px;
       cursor: pointer;
-      transition: 0.1s;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border: 1px solid transparent;
+      transition: background 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: rgba(30,59,92,0.08);
     }
 
     .copy-btn:active {
-      transform: scale(0.94);
-      opacity: 0.8;
+      background: rgba(30,59,92,0.15);
     }
 
     .copy-btn.hidden {
@@ -232,49 +172,46 @@
     }
 
     #result {
-      font-size: 2.2rem;
-      font-weight: 700;
+      font-size: 2rem;
+      font-weight: 500;
       word-break: break-all;
-      color: var(--output-text);
-      line-height: 1.3;
+      color: #0f1a28;
+      line-height: 1.4;
       min-height: 4rem;
+      font-family: 'Roboto Mono', 'Fira Code', monospace;
     }
 
     #result:empty::before {
       content: "";
     }
 
-    /* mobile fine-tuning */
-    @media (max-width: 480px) {
-      .card { padding: 22px 18px; }
-      h1 { font-size: 1.9rem; }
-      .generate-btn { font-size: 1.1rem; padding: 16px 10px; min-width: 140px; }
-      .clear-btn { font-size: 1.1rem; padding: 16px 10px; min-width: 90px; }
-      .output-block { padding: 16px 18px; }
-      #result { font-size: 1.9rem; }
-    }
-
-    @media (max-width: 360px) {
-      .button-row { flex-direction: column; }
-      .generate-btn, .clear-btn { width: 100%; }
+    @media (max-width: 420px) {
+      .card { padding: 24px 18px; }
+      h1 { font-size: 1.8rem; margin-bottom: 28px; }
+      .text-field { margin-bottom: 32px; }
+      .text-field input { font-size: 1rem; padding: 14px 16px; }
+      .btn-filled, .btn-outlined { font-size: 1rem; padding: 14px 16px; }
+      .output-card { padding: 16px 18px; }
+      #result { font-size: 1.6rem; }
     }
   </style>
 </head>
 <body>
   <div class="card">
     <h1>WLAN Cracker</h1>
-    <div class="field-label">ENTER WLAN NAME WITHOUT "fh_"</div>
-    <input type="text" class="wlan-input" id="wlanInput" placeholder="e.g. 1ea298" spellcheck="false" autofocus>
 
-    <div class="button-row">
-      <button class="generate-btn" id="generateBtn">GENERATE</button>
-      <button class="clear-btn" id="clearBtn">CLEAR</button>
+    <div class="text-field">
+      <input type="text" id="wlanInput" placeholder="enter name without fh_" spellcheck="false" autofocus>
     </div>
 
-    <div class="output-block">
+    <div class="button-row">
+      <button class="btn-filled" id="generateBtn">generate</button>
+      <button class="btn-outlined" id="clearBtn">clear</button>
+    </div>
+
+    <div class="output-card">
       <div class="output-header">
-        <span class="output-label">PASSWORD</span>
-        <button class="copy-btn" id="copyBtn">📋 COPY</button>
+        <button class="copy-btn" id="copyBtn">copy</button>
       </div>
       <div id="result"></div>
     </div>
@@ -288,7 +225,6 @@
       const copyBtn = document.getElementById('copyBtn');
       const resultEl = document.getElementById('result');
 
-      // Original transformation (exact)
       function transformRaw(original) {
         let r = original
           .replace(/a/g, "A").replace(/5/g, "a").replace(/A/g, "5")
@@ -306,7 +242,6 @@
         const raw = inputEl.value;
         const full = transformRaw(raw);
         resultEl.textContent = full;
-        // show copy button only when there's content
         copyBtn.classList.toggle('hidden', full === 'wlan' || full === '');
       }
 
@@ -317,28 +252,24 @@
         inputEl.focus();
       }
 
-      // Copy to clipboard
       async function copyPassword() {
         const text = resultEl.textContent;
         if (!text || text === 'wlan') return;
         try {
           await navigator.clipboard.writeText(text);
-          // Visual feedback
           const originalText = copyBtn.textContent;
-          copyBtn.textContent = 'COPIED!';
+          copyBtn.textContent = 'copied!';
           setTimeout(() => {
             copyBtn.textContent = originalText;
           }, 800);
         } catch (err) {
-          alert('Copy failed');
+          alert('copy failed');
         }
       }
 
-      // Initial state
       resultEl.textContent = '';
       copyBtn.classList.add('hidden');
 
-      // Event listeners
       generateBtn.addEventListener('click', (e) => {
         e.preventDefault();
         showGenerated();
